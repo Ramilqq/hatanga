@@ -1,0 +1,32 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use TCG\Voyager\Facades\Voyager;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|https://powerofterritory.ru/calendar/
+*/
+
+Route::get('/', [\App\Http\Controllers\Web\IndexController::class, 'index'])->name('home');
+
+Route::get('/tour', [\App\Http\Controllers\Web\TourController::class, 'index'])->name('tour');
+Route::get('/tour/{slug}', [\App\Http\Controllers\Web\TourController::class, 'get'])->name('get_tour');
+
+Route::get('/page/{id}', [\App\Http\Controllers\Web\PageController::class, 'index'])->name('get_page');
+
+Route::get('/post', [\App\Http\Controllers\Web\PostController::class, 'index'])->name('post');
+Route::get('/post/{category}', [\App\Http\Controllers\Web\PostController::class, 'category'])->name('get_category');
+Route::get('/post/{category}/{slug}', [\App\Http\Controllers\Web\PostController::class, 'get'])->name('get_post');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
