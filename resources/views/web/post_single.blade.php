@@ -21,7 +21,7 @@
 								<div class="entry-meta">
 									<ul>
 										<li><i class="icon-calendar-check1"></i>{{ date('d-m-Y', strtotime( $post['created_at'])) }}</li>
-										<li><i class="icon-comments"></i> 43 Комментарий</li>
+										<li><i class="icon-comments"></i> {{ $count }} Комментарий</li>
 									</ul>
 								</div>
 								@if ($post['image'])
@@ -48,7 +48,7 @@
 							<!-- Post Single - Author End -->
 						@endif
 
-						@include('web.tpl.comment', [])
+						@include('web.tpl.comment', ['id' => $post['id'], 'count' => $count])
 					</div>
 				</div>
 			</div>

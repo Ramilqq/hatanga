@@ -9,7 +9,7 @@ class Advantage extends Model
 {
     use HasFactory;
 
-    protected $translatable = [
+    protected $fillable = [
         'title',
         'body',
         'image',

@@ -25,6 +25,10 @@ Route::get('/post', [\App\Http\Controllers\Web\PostController::class, 'index'])-
 Route::get('/post/{category}', [\App\Http\Controllers\Web\PostController::class, 'category'])->name('get_category');
 Route::get('/post/{category}/{slug}', [\App\Http\Controllers\Web\PostController::class, 'get'])->name('get_post');
 
+Route::get('/order_tour/{id}', [\App\Http\Controllers\Web\OrderTourController::class, 'index'])->name('order_tour');
+Route::post('/order_tour_form', [\App\Http\Controllers\Web\OrderTourController::class, 'orderTourForm'])->name('order_tour_form');
+
+Route::post('/comment_form', [\App\Http\Controllers\Web\CommentController::class, 'commentForm'])->name('comment_form');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

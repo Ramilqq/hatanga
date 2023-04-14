@@ -114,7 +114,7 @@
 						</div>
 						@endif	
 						
-						@include('web.tpl.comment', [])
+						@include('web.tpl.form_order_tour', ['id' => $tour['id']])
 					</div>
 				</div>
 			</div>

@@ -5,15 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class OrderTour extends Model
 {
     use HasFactory;
 
+    public const STATUS_NEW = 'НОВЫЙ';
+
     protected $fillable = [
-        'res_id',
+        'tour_id',
         'name',
+        'familie',
         'mail',
-        'body',
-        'model',
+        'phone',
+        'promo_code',
+        'status',
     ];
 }

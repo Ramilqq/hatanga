@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use TCG\Voyager\Models\Category;
 use TCG\Voyager\Models\Post;
@@ -72,14 +73,17 @@ class PostController extends Controller
 
     public function get($category, $slug='')
     {
-        $posts = Post::where('slug', $slug)->first();
+        if(!$posts = Post::where('slug', $slug)->first())
+        {
+            return view('web.404', []);
+        }
+        
+        $comments = Comment::where('res_id', $posts['id'])->get()->toArray() ?: [];
+        $count = count($comments);
         return view('web.post_single', [
-            'post' => $posts
+            'post' => $posts,
+            'comments' => $comments,
+            'count' => $count,
         ]);
-    }
-
-    public function comment(Request $request)
-    {
-        //
     }
 }

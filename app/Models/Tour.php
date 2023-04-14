@@ -10,7 +10,7 @@ class Tour extends Model
 {
     use HasFactory;
     use Spatial;
-    protected $translatable = [
+    protected $fillable = [
         'title',
         'excerpt',
         'body',
