@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('phone')->nullable()->default(NULL);
             $table->text('promo_code')->nullable()->default(NULL);
             
-            $table->text('status')->default(OrderTour::STATUS_NEW);
+            $table->string('status')->default(OrderTour::STATUS_NEW);
 
             $table->timestamps();
         });

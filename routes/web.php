@@ -30,6 +30,10 @@ Route::post('/order_tour_form', [\App\Http\Controllers\Web\OrderTourController::
 
 Route::post('/comment_form', [\App\Http\Controllers\Web\CommentController::class, 'commentForm'])->name('comment_form');
 
+Route::get('/gallery', [\App\Http\Controllers\Web\GalleryController::class, 'index'])->name('gallery');
+
+Route::get('/news', [\App\Http\Controllers\Web\NewsController::class, 'index'])->name('news');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('slug')->unique()->default(NULL);
             $table->text('meta_description')->nullable()->default(NULL);
             $table->text('meta_keywords')->nullable()->default(NULL);
-            $table->text('status')->default(Tour::STATUS_INACTIVE);
+            $table->string('status')->default(Tour::STATUS_INACTIVE);
             $table->decimal('price', 12, 2)->nullable()->default(0.0);
             $table->decimal('old_price', 12, 2)->nullable()->default(0.0);
             $table->date('date_start')->nullable()->default(NULL);
